@@ -1,0 +1,40 @@
+{
+  "name": "@peng/realtime-latency-chart",
+  "version": "0.1.0",
+  "description": "Realtime canvas latency chart with monotone smoothing and edge-stable streaming",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:lib && npm run build:demo",
+    "build:lib": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean",
+    "build:demo": "vite build --outDir docs",
+    "preview": "vite preview",
+    "check": "tsc --noEmit"
+  },
+  "keywords": [
+    "latency",
+    "chart",
+    "canvas",
+    "realtime",
+    "timeseries"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.2.4",
+    "typescript": "^5.6.3",
+    "vite": "^8.0.14"
+  }
+}

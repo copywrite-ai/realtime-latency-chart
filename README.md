@@ -2,6 +2,10 @@
 
 Realtime canvas latency chart with monotone smoothing and edge-stable streaming.
 
+## Live Demo
+
+[https://mynanocloud.com/realtime-latency-chart/](https://mynanocloud.com/realtime-latency-chart/)
+
 ## Features
 
 - Real-time time-series rendering (streaming)

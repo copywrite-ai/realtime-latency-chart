@@ -17,25 +17,25 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
-          cache-dependency-path: realtime-latency-chart/package-lock.json
+          cache-dependency-path: package-lock.json
       - name: Install
         run: npm ci
-        working-directory: realtime-latency-chart
       - name: Build demo
         run: npm run build:demo
-        working-directory: realtime-latency-chart
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: realtime-latency-chart/docs
+          path: docs
 
   deploy:
     needs: build
